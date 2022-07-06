@@ -34,26 +34,21 @@ ul {
   width: 5vmin;
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
-  animation-name: move-like-a-square;
-  animation-duration: 4s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
+  left: 50vw;
+  border-radius: 50%;
+
+  --duration: 0.5s;
+  --stagger: 0.1s;
+  --interval: calc(var(--duration) - var(--stagger));
+  
+  animation: move-right var(--duration) calc(var(--interval) * var(--i)) both;
 }
 
-@keyframes move-like-a-square {
-  0% {
+@keyframes move-right {
+  from {
     transform: none;
   }
-  25% {
+  to {
     transform: translateX(20vw);
-  }
-  50% {
-    transform: translateX(20vw) translateY(20vw);
-  }
-  75% {
-    transform: translateX(0vw) translateY(20vw);
-  }
-  100% {
-    transform: translateY(-20vw);
   }
 }
